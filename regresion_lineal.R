@@ -1,5 +1,15 @@
+# Cargar librerías necesarias
+library(ggplot2)
 # Cargar el CSV
 df <- read.csv("ds_salaries.csv")
+# Diagram de cajas
+ggplot(df, aes(x = experience_level, y = salary_in_usd)) +
+  geom_boxplot() +
+  geom_jitter(width = 0.2, alpha = 0.5) +
+  labs(title = "Distribucion de salarios por nivel",
+       x = "Nivel de experiencia", y = "Salario en USD") +
+  theme_minimal()
+
 # Verificar las primeras filas del dataframe
 head(df)
 # Convertir la columna 'experience_level' a un factor y luego a un valor numérico
@@ -12,8 +22,6 @@ table(df$experience_level, df$experience_level_num)
 modelo <- lm(salary_in_usd ~ experience_level_num, data = df)
 # Resumen del modelo
 summary(modelo)
-# Cargar librerías necesarias
-library(ggplot2)
 # Crear la gráfica
 ggplot(df, aes(x = experience_level_num, y = salary_in_usd)) +
   geom_point(alpha = 0.5) +
