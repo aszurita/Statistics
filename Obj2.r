@@ -49,3 +49,12 @@ ggplot(contingency_df, aes(x = company_size, y = proportion, fill = experience_l
   )) +
   theme_minimal()
 
+#Prueba de hipótesis
+# X - trabajadores con nivel de experiencia senior en empresas grandes
+p1 <- 158 
+n1 <- 263 
+# Y trabajadores con nivel de experiencia senior en empresas medianas
+p2 <- 2087
+n2 <- 2723
+
+prop.test(c(p1, p2), n = c(n1, n2), alternative = "greater")
