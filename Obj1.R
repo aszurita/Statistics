@@ -1,4 +1,5 @@
-df_salaries <- read.csv("ds_salaries_US.csv")
+library(readr)
+ds_salaries_US <- read_csv("OneDrive - Escuela Superior Politécnica del Litoral/ESPOL/SEMESTRES/SEMESTRE 4/Estadística/Proyecto/Statistics/ds_salaries_US.csv")
 print(head(df_salaries))
 
 print("CATEGORIAS UNICAS") 
@@ -47,12 +48,13 @@ print(median_DA)
 # Perform a t-test to compare the mean salaries of
 # Data Scientists and Data Engineers
 ## significancia 0.05
+
 # Ho: median_DS >= median_DE
 # Ha : median_DS < median_DE
-
 test_result_DS_DE <- t.test(salaries_DS, salaries_DE, alternative = "less",
                       conf.level = 0.95)
 print(test_result_DS_DE)
+
 # Conclusión
 # p_value = 0.9906 y el nivel de significancia 0.05
 # por lo tanto p_value > nivel_significacnia no se rechaza Ho
@@ -63,6 +65,7 @@ print(test_result_DS_DE)
 # Perform a t-test to compare the mean salaries of
 # Data Scientists and Data Analyst
 ## significancia 0.05
+
 # Ho: median_DS >= median_DA
 # Ha : median_DS < median_DA
 
